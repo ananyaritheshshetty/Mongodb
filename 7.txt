@@ -1,0 +1,25 @@
+mongosh
+
+use myDatabase
+
+db.users.find().pretty()
+
+db.users.updateOne(
+  { name: "John Doe" },
+  { $set: { age: 30 } }
+)
+
+db.users.updateOne(
+  { name: "Alice" },
+  { $set: { city: "Mangalore" } }
+)
+
+
+db.users.find({ name: "John Doe" }).pretty()
+
+db.users.replaceOne(
+  { _id: ObjectId("67b6356f72216bfa97548fba") },
+  { name: "John Doe", age: 35, city: "Mumbai" }
+)
+
+db.users.find().pretty()

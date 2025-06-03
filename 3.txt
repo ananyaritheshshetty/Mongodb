@@ -1,0 +1,13 @@
+mongosh
+
+use myDatabase
+
+db.createCollection("admin")
+
+db.createCollection("logs", { capped: true, size: 10000, max: 500 })
+
+show collections
+
+db.products.insertOne({ name: "Laptop", price: 75000 })
+
+show collections

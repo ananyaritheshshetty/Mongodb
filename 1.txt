@@ -1,0 +1,10 @@
+mongod --version
+
+net start MongoDB
+
+mongosh
+
+
+
+
+

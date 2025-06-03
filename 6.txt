@@ -1,0 +1,38 @@
+mongosh
+
+use myDatabase
+
+db.users.insertMany([
+  { name: "John Doe", age: 25, city: "Mangalore" },
+  { name: "Alice", age: 22, city: "Bangalore" },
+  { name: "Bob", age: 30, city: "Delhi" },
+  { name: "Charlie", age: 27, city: "Mumbai" }
+])
+
+db.users.find().pretty()
+
+match
+db.users.find({ city: "Bangalore" }).pretty()
+
+comparision
+db.users.find({ age: { $gt: 25 } }).pretty()
+
+logical
+db.users.find({
+  $or: [{ city: "Bangalore" }, { city: "Mumbai" }]
+}).pretty()
+
+specific fields
+db.users.find({}, { _id: 0, name: 1, age: 1 }).pretty()
+
+regrex
+db.users.find({ name: /^A/ }).pretty()
+
+
+sorting
+db.users.find().sort({ age: -1 }).pretty()
+
+limit nd skip
+db.users.find().skip(1).limit(2).pretty()
+
+

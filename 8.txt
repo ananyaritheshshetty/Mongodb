@@ -1,0 +1,24 @@
+mongosh
+
+use myDatabase
+
+db.users.insertMany([
+  { name: "John Doe", age: 25, city: "Mangalore" },
+  { name: "Alice", age: 22, city: "Bangalore" },
+  { name: "Bob", age: 30, city: "Delhi" },
+  { name: "Charlie", age: 27, city: "Bangalore" }
+])
+
+db.users.find().pretty()
+
+db.users.deleteOne({ name: "John Doe" })
+
+db.users.find({ name: "John Doe" }).pretty()
+
+db.users.deleteMany({ city: "Bangalore" })
+
+db.users.find({ city: "Bangalore" }).pretty()
+
+db.users.deleteMany({})
+
+db.users.drop()
